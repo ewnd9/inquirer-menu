@@ -11,6 +11,8 @@ $ npm install inquirer-menu
 ```
 var menu = require('inquirer-menu');
 
+var i = 0;
+
 var createMenu = function(name) {
   return {
     message: name,
@@ -20,6 +22,11 @@ var createMenu = function(name) {
       },
       'test-2': function() {
         return createMenu('red menu');
+      },
+      'test-dynamic': function() {
+        return function() {
+          return createMenu('menu #' + i++);
+        };
       }
     }
   };
@@ -27,7 +34,6 @@ var createMenu = function(name) {
 
 var blueMenu = createMenu('blue menu');
 menu(blueMenu);
-
 ```
 
 ## License
