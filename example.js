@@ -22,4 +22,6 @@ var createMenu = function(name) {
 var menu = require('./');
 var blueMenu = createMenu('blue menu');
 
-menu(blueMenu);
+menu(blueMenu).then(function() {
+  console.log('bye');
+});
