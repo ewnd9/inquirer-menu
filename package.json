@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "history": "^1.8.4",
+    "history": "1.8.4",
     "inquirer-question": "^1.1.0"
   },
   "devDependencies": {
