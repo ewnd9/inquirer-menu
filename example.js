@@ -1,27 +1,41 @@
-var i = 0;
+var level = 0;
 
-var createMenu = function(name) {
+var createMenu = function() {
   return {
-    message: name,
+    message: 'main-menu' + (level === 0 ? '' : (' level ' + level)),
     choices: {
-      'test-1': function() {
-        return 1;
+      setupData: function() {
+        level++;
+        console.log('success');
+        return;
       },
-      'test-2': function() {
-        return createMenu('red menu');
-      },
-      'test-dynamic': function() {
-        return function() {
-          return createMenu('menu #' + i++);
-        };
-      }
+      blueMenu: blueMenu,
+      redMenu: redMenu
     }
   };
 };
 
-var menu = require('./');
-var blueMenu = createMenu('blue menu');
+var blueMenu = {
+  message: 'blue-menu',
+  choices: {
+    callApi: function() {
+      console.log('blue-api called');
+      return;
+    }
+  }
+};
 
-menu(blueMenu).then(function() {
+var redMenu = {
+  message: 'red-menu',
+  choices: {
+    callApi: function() {
+      console.log('red-api called');
+      return;
+    }
+  }
+};
+
+var menu = require('./');
+menu(createMenu).then(function() {
   console.log('bye');
 });

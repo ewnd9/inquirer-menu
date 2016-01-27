@@ -1,39 +1,58 @@
 # inquirer-menu
 
+Stateful menu for inquirer
+
 ## Install
 
 ```
-$ npm install inquirer-menu
+$ npm install inquirer-menu --save
 ```
 
 ## Usage
 
-```
-var menu = require('inquirer-menu');
+```js
+var level = 0;
 
-var i = 0;
-
-var createMenu = function(name) {
+var createMenu = function() {
   return {
-    message: name,
+    message: 'main-menu' + (level === 0 ? '' : (' level ' + level)),
     choices: {
-      'test-1': function() {
-        return 1;
+      setupData: function() {
+        level++;
+        console.log('success');
+        return;
       },
-      'test-2': function() {
-        return createMenu('red menu');
-      },
-      'test-dynamic': function() {
-        return function() {
-          return createMenu('menu #' + i++);
-        };
-      }
+      blueMenu: blueMenu,
+      redMenu: redMenu
     }
   };
 };
 
-var blueMenu = createMenu('blue menu');
-menu(blueMenu);
+var blueMenu = {
+  message: 'blue-menu',
+  choices: {
+    callApi: function() {
+      console.log('blue-api called');
+      return;
+    }
+  }
+};
+
+var redMenu = {
+  message: 'red-menu',
+  choices: {
+    callApi: function() {
+      console.log('red-api called');
+      return;
+    }
+  }
+};
+
+var menu = require('inquirer-menu');
+menu(createMenu).then(function() {
+  console.log('bye');
+});
+
 ```
 
 ## License

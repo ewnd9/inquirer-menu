@@ -1,22 +1,23 @@
 {
   "name": "inquirer-menu",
   "version": "0.1.4",
-  "description": "INSERT_DESCRIPTION",
+  "description": "stateful menu for inquirer",
   "main": "lib/index.js",
   "scripts": {},
-  "preferGlobal": "false",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ewnd9/inquirer-menu.git"
   },
   "keywords": [
-    "INSERT_KEYWORDS"
+    "inquier",
+    "tui",
+    "dialog",
+    "menu"
   ],
   "author": "ewnd9 <ewndnine@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "history": "1.8.4",
     "inquirer-question": "^1.1.0"
   },
   "devDependencies": {
