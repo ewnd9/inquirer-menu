@@ -1,9 +1,14 @@
 {
   "name": "inquirer-menu",
   "version": "0.2.0",
-  "description": "stateful menu for inquirer",
+  "description": "wrapper around inquirer for creation a terminal menu with history",
   "main": "lib/index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "ava --serial --verbose"
+  },
+  "files": {
+    "lib"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ewnd9/inquirer-menu.git"
@@ -12,16 +17,17 @@
     "inquier",
     "tui",
     "dialog",
-    "menu"
+    "menu",
+    "terminal menu"
   ],
   "author": "ewnd9 <ewndnine@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.10.2",
-    "inquirer-question": "^1.1.0"
+    "inquirer-question": "^1.2.0",
+    "pinkie": "^2.0.4"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.3.0"
+    "ava": "^0.13.0",
+    "inquirer-test": "^1.0.5"
   }
 }
