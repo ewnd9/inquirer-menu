@@ -6,9 +6,9 @@
   "scripts": {
     "test": "ava --serial --verbose"
   },
-  "files": {
+  "files": [
     "lib"
-  },
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ewnd9/inquirer-menu.git"
